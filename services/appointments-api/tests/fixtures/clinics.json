@@ -1,0 +1,50 @@
+[
+ {
+  "code": "BW-LDN-01",
+  "name": "Brightwell Marylebone",
+  "town": "London",
+  "nation": "ENG"
+ },
+ {
+  "code": "BW-LDN-02",
+  "name": "Brightwell Canary Wharf",
+  "town": "London",
+  "nation": "ENG"
+ },
+ {
+  "code": "BW-LDN-03",
+  "name": "Brightwell Richmond",
+  "town": "London",
+  "nation": "ENG"
+ },
+ {
+  "code": "BW-LDN-04",
+  "name": "Brightwell Islington",
+  "town": "London",
+  "nation": "ENG"
+ },
+ {
+  "code": "BW-LDN-05",
+  "name": "Brightwell Croydon",
+  "town": "London",
+  "nation": "ENG"
+ },
+ {
+  "code": "BW-LDN-06",
+  "name": "Brightwell Wimbledon",
+  "town": "London",
+  "nation": "ENG"
+ },
+ {
+  "code": "BW-MAN-01",
+  "name": "Brightwell Spinningfields",
+  "town": "Manchester",
+  "nation": "ENG"
+ },
+ {
+  "code": "BW-MAN-02",
+  "name": "Brightwell Didsbury",
+  "town": "Manchester",
+  "nation": "ENG"
+ }
+]

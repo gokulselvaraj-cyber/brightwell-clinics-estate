@@ -1,0 +1,10 @@
+database:
+  host: appointments-db.bw-prod.internal
+  pool_size: 30
+booking:
+  # CHG-4410 (Mar 2026): clinics asked for two days' notice; was 24
+  late_cancel_hours: 48
+  max_future_days: 180
+visit_summary:
+  url: http://visit-summary.bw-prod.svc.cluster.local:8070
+  timeout_seconds: 30

@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: visit-summary-ingress
+spec:
+  podSelector:
+    matchLabels: {app: visit-summary}
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels: {app: appointments-api}
+      ports:
+        - port: 8070

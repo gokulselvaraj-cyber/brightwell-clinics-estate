@@ -1,0 +1,17 @@
+code: BW-CAM-01
+name: Brightwell Trumpington
+town: Cambridge
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2020
+rooms: 3
+specialties: [CARD, GAST]
+opening_hours:
+    mon: 08:30-18:00
+    tue: 08:30-18:00
+    wed: 08:30-18:00
+    thu: 08:30-18:00
+    fri: 08:30-18:00
+    sat: closed
+reminder_language: en-GB

@@ -1,0 +1,18 @@
+code: BW-GLA-01
+name: Brightwell Merchant City
+town: Glasgow
+nation: SCO
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2017
+rooms: 7
+specialties: [MSK, ENT, GAST]
+opening_hours:
+    mon: 08:00-18:00
+    tue: 08:00-18:00
+    wed: 08:00-18:00
+    thu: 08:00-18:00
+    fri: 08:00-18:00
+    sat: 09:00-13:00
+reminder_language: en-GB
+parking: limited, patients asked to arrive 10 minutes early

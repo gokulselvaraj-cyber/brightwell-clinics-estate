@@ -1,0 +1,18 @@
+code: BW-GWY-01
+name: Brightwell Salthill
+town: Galway
+nation: IE
+timezone: Europe/Dublin
+data_region: eu-west-1
+opened: 2022
+rooms: 3
+specialties: [DERM, ENT]
+opening_hours:
+    mon: 08:30-20:00
+    tue: 08:30-20:00
+    wed: 08:30-20:00
+    thu: 08:30-20:00
+    fri: 08:30-20:00
+    sat: closed
+reminder_language: en-IE
+currency: EUR

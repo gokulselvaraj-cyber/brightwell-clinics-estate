@@ -1,0 +1,18 @@
+code: BW-DLR-01
+name: Brightwell Dun Laoghaire
+town: Dun Laoghaire
+nation: IE
+timezone: Europe/Dublin
+data_region: eu-west-1
+opened: 2021
+rooms: 6
+specialties: [DERM, AUD]
+opening_hours:
+    mon: 08:30-18:00
+    tue: 08:30-18:00
+    wed: 08:30-18:00
+    thu: 08:30-18:00
+    fri: 08:30-18:00
+    sat: closed
+reminder_language: en-IE
+currency: EUR

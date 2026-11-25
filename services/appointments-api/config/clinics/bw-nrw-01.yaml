@@ -1,0 +1,17 @@
+code: BW-NRW-01
+name: Brightwell Eaton
+town: Norwich
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2024
+rooms: 4
+specialties: [DERM, PAED]
+opening_hours:
+    mon: 08:30-18:00
+    tue: 08:30-18:00
+    wed: 08:30-18:00
+    thu: 08:30-18:00
+    fri: 08:30-18:00
+    sat: closed
+reminder_language: en-GB

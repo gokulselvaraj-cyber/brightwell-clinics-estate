@@ -1,0 +1,17 @@
+code: BW-LDN-02
+name: Brightwell Canary Wharf
+town: London
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2016
+rooms: 4
+specialties: [MSK, DERM, GYN, ENDO]
+opening_hours:
+    mon: 08:30-19:00
+    tue: 08:30-19:00
+    wed: 08:30-19:00
+    thu: 08:30-19:00
+    fri: 08:30-19:00
+    sat: closed
+reminder_language: en-GB

@@ -1,0 +1,16 @@
+server:
+  port: 8070
+llm:
+  gateway_url: ${LLM_GATEWAY_URL}
+  model: bw-clinsum-2
+  max_tokens: 700
+  temperature: 0.2
+  timeout_seconds: 25
+  enabled: true
+archive:
+  bucket: bw-visit-summaries-euw2
+  region: eu-west-2
+database:
+  host: localhost
+  name: appointmentsdb
+  password: ${DB_PASSWORD}

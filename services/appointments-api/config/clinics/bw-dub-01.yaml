@@ -1,0 +1,18 @@
+code: BW-DUB-01
+name: Brightwell Ballsbridge
+town: Dublin
+nation: IE
+timezone: Europe/Dublin
+data_region: eu-west-1
+opened: 2019
+rooms: 3
+specialties: [DERM, CARD, GYN, ENT]
+opening_hours:
+    mon: 08:00-18:00
+    tue: 08:00-18:00
+    wed: 08:00-18:00
+    thu: 08:00-18:00
+    fri: 08:00-18:00
+    sat: closed
+reminder_language: en-IE
+currency: EUR

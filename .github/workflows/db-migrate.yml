@@ -1,0 +1,15 @@
+name: db-migrate
+on:
+  workflow_dispatch:
+    inputs:
+      environment: {type: choice, options: [dev, test, prod]}
+jobs:
+  migrate:
+    runs-on: ubuntu-24.04
+    environment: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: >
+          docker run --rm -v $PWD/db:/flyway/conf -v $PWD/db/migrations:/flyway/migrations
+          -e DB_HOST=${{ vars.DB_HOST }} -e FLYWAY_PASSWORD=${{ secrets.FLYWAY_PASSWORD }}
+          flyway/flyway:10.21 migrate

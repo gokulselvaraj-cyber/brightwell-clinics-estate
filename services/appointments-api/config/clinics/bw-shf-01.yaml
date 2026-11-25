@@ -1,0 +1,17 @@
+code: BW-SHF-01
+name: Brightwell Kelham Island
+town: Sheffield
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2019
+rooms: 6
+specialties: [MSK, DERM]
+opening_hours:
+    mon: 08:00-18:00
+    tue: 08:00-18:00
+    wed: 08:00-18:00
+    thu: 08:00-18:00
+    fri: 08:00-18:00
+    sat: closed
+reminder_language: en-GB

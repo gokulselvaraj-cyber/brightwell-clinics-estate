@@ -1,0 +1,175 @@
+openapi: 3.0.3
+info:
+  title: Brightwell appointments API
+  version: 2.7.0
+  description: Booking, cancellation and check-in for Brightwell Clinics patients.
+servers:
+  - url: https://api.brightwell-clinics.example
+paths:
+  /v1/clinics:
+    get:
+      operationId: listClinics
+      responses:
+        "200": {description: Clinics}
+  /v1/clinics/{clinic_code}/slots:
+    get:
+      operationId: findSlots
+      parameters:
+        - {name: clinic_code, in: path, required: true, schema: {type: string}}
+        - {name: specialty, in: query, required: true, schema: {type: string}}
+        - {name: on, in: query, required: true, schema: {type: string, format: date}}
+      responses:
+        "200":
+          description: Open slots
+          content:
+            application/json:
+              schema: {type: array, items: {$ref: "#/components/schemas/SlotView"}}
+  /v1/appointments:
+    post:
+      operationId: bookAppointment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/BookAppointmentRequest"}
+      responses:
+        "201":
+          description: Booked
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/AppointmentView"}
+        "409": {description: Slot no longer available}
+        "422": {description: Online booking paused for this patient}
+  /v1/appointments/{appointment_id}:
+    get:
+      operationId: getAppointment
+      parameters: [{$ref: "#/components/parameters/AppointmentId"}]
+      responses:
+        "200":
+          description: Appointment
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/AppointmentView"}
+  /v1/appointments/{appointment_id}/cancel:
+    post:
+      operationId: cancelAppointment
+      parameters: [{$ref: "#/components/parameters/AppointmentId"}]
+      requestBody:
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/CancelRequest"}
+      responses:
+        "200": {description: Cancelled (CANCELLED or LATE_CANCELLED inside 24 hours)}
+  /v1/appointments/{appointment_id}/change:
+    post:
+      operationId: changeAppointment
+      parameters: [{$ref: "#/components/parameters/AppointmentId"}]
+      requestBody:
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/ChangeRequest"}
+      responses:
+        "200": {description: Moved to the new slot}
+  /v1/appointments/{appointment_id}/reschedule:
+    post:
+      operationId: rescheduleAppointment
+      description: Move an appointment and record the reason (portal RescheduleWizard).
+      parameters: [{$ref: "#/components/parameters/AppointmentId"}]
+      requestBody:
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/RescheduleRequest"}
+      responses:
+        "200": {description: Rescheduled}
+  /v1/appointments/{appointment_id}/check-in:
+    post:
+      operationId: checkIn
+      parameters: [{$ref: "#/components/parameters/AppointmentId"}]
+      responses:
+        "200":
+          description: Checked in
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/CheckInResponse"}
+        "409": {description: Check-in not open}
+  /v1/visits/{visit_id}/summary:
+    post:
+      operationId: requestVisitSummary
+      parameters: [{name: visit_id, in: path, required: true, schema: {type: integer}}]
+      responses:
+        "202": {description: Summary drafting started}
+  /v1/me/appointments:
+    get:
+      operationId: myAppointments
+      responses:
+        "200":
+          description: The signed-in patient's appointments
+          content:
+            application/json:
+              schema: {type: array, items: {$ref: "#/components/schemas/AppointmentView"}}
+components:
+  parameters:
+    AppointmentId: {name: appointment_id, in: path, required: true, schema: {type: integer}}
+  schemas:
+    PatientDetails:
+      type: object
+      required: [given_name, family_name, date_of_birth]
+      properties:
+        given_name: {type: string}
+        family_name: {type: string}
+        date_of_birth: {type: string, format: date}
+        phone: {type: string}
+        email: {type: string}
+        postcode: {type: string}
+        eircode: {type: string}
+        nhs_number: {type: string}
+        ppsn: {type: string}
+    BookAppointmentRequest:
+      type: object
+      required: [clinic_code, slot_id, specialty_code, patient]
+      properties:
+        clinic_code: {type: string}
+        slot_id: {type: integer}
+        specialty_code: {type: string}
+        patient: {$ref: "#/components/schemas/PatientDetails"}
+        referral_id: {type: integer}
+        booked_via: {type: string}
+    AppointmentView:
+      type: object
+      properties:
+        appointment_ref: {type: string}
+        clinic_code: {type: string}
+        specialty_code: {type: string}
+        starts_at: {type: string, format: date-time}
+        status: {type: string, enum: [BOOKED, CANCELLED, LATE_CANCELLED, ARRIVED, SEEN, NO_SHOW]}
+        late_cancel_deadline: {type: string, format: date-time}
+    SlotView:
+      type: object
+      properties:
+        slot_id: {type: integer}
+        starts_at: {type: string, format: date-time}
+        length_minutes: {type: integer}
+        clinician_display_name: {type: string}
+        specialty_code: {type: string}
+    CheckInResponse:
+      type: object
+      properties:
+        appointment_ref: {type: string}
+        status: {type: string}
+        checked_in_at: {type: string, format: date-time}
+        queue_position: {type: integer}
+    CancelRequest:
+      type: object
+      properties:
+        reason: {type: string}
+    ChangeRequest:
+      type: object
+      required: [new_slot_id]
+      properties:
+        new_slot_id: {type: integer}
+    RescheduleRequest:
+      type: object
+      required: [new_slot_id]
+      properties:
+        new_slot_id: {type: integer}
+        reason: {type: string}

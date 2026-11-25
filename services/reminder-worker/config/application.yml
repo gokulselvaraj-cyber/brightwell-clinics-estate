@@ -1,0 +1,12 @@
+poll_interval_seconds: 60
+batch_size: 200
+max_attempts: 4
+relaypost:
+  base_url: https://api.relaypost.example/v2
+  api_key: ${RELAYPOST_API_KEY}
+  sender_id: BRIGHTWELL
+database:
+  host: localhost
+  port: 5432
+  name: appointmentsdb
+  password: ${DB_PASSWORD}

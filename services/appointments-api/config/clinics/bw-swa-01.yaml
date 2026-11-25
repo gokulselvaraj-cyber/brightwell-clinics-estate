@@ -1,0 +1,17 @@
+code: BW-SWA-01
+name: Brightwell Sketty
+town: Swansea
+nation: WAL
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2022
+rooms: 7
+specialties: [ENT, GYN]
+opening_hours:
+    mon: 08:30-20:00
+    tue: 08:30-20:00
+    wed: 08:30-20:00
+    thu: 08:30-20:00
+    fri: 08:30-20:00
+    sat: closed
+reminder_language: cy-GB

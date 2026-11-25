@@ -1,0 +1,20 @@
+name: data-pipeline
+on:
+  push:
+    branches: [main]
+    paths: ["data-pipeline/**"]
+  pull_request:
+    paths: ["data-pipeline/**"]
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: data-pipeline
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -r requirements.txt pytest ruff
+      - run: ruff check .
+      - run: pytest -q

@@ -1,0 +1,30 @@
+{
+ "title": "Clinic operations",
+ "uid": "bw-clinic-ops",
+ "refresh": "1m",
+ "panels": [
+  {
+   "title": "Bookings per hour",
+   "type": "timeseries",
+   "expr": "sum(rate(http_requests_total{job=\"appointments-api\",handler=\"/v1/appointments\",method=\"POST\"}[1h]))*3600"
+  },
+  {
+   "title": "Check-ins today",
+   "type": "stat",
+   "expr": "sum(increase(bw_checkins_total[1d]))"
+  },
+  {
+   "title": "Reminders sent / failed",
+   "type": "timeseries",
+   "expr": [
+    "rate(bw_reminders_sent_total[5m])",
+    "rate(bw_reminders_failed_total[5m])"
+   ]
+  },
+  {
+   "title": "Visit summary p95 latency",
+   "type": "timeseries",
+   "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{job=\"visit-summary\"}[5m])) by (le))"
+  }
+ ]
+}

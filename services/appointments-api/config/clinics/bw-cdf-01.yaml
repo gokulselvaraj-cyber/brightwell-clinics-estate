@@ -1,0 +1,17 @@
+code: BW-CDF-01
+name: Brightwell Pontcanna
+town: Cardiff
+nation: WAL
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2018
+rooms: 6
+specialties: [MSK, DERM, ENDO]
+opening_hours:
+    mon: 08:00-19:00
+    tue: 08:00-19:00
+    wed: 08:00-19:00
+    thu: 08:00-19:00
+    fri: 08:00-19:00
+    sat: 09:00-13:00
+reminder_language: cy-GB

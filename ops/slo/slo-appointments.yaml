@@ -1,0 +1,10 @@
+service: appointments-api
+slos:
+  - name: availability
+    objective: 99.9
+    window: 30d
+    sli: ratio of non-5xx responses on /v1/*
+  - name: booking-latency
+    objective: 99.0
+    threshold_ms: 800
+    sli: POST /v1/appointments p99 under threshold

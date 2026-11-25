@@ -1,0 +1,25 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://schemas.brightwell-clinics.example/reminder-sms.schema.json",
+ "title": "RelayPost reminder message as sent by reminder-worker",
+ "type": "object",
+ "required": [
+  "to",
+  "from",
+  "body"
+ ],
+ "properties": {
+  "to": {
+   "type": "string",
+   "description": "E.164 mobile number (personal data)"
+  },
+  "from": {
+   "type": "string",
+   "const": "BRIGHTWELL"
+  },
+  "body": {
+   "type": "string",
+   "maxLength": 459
+  }
+ }
+}

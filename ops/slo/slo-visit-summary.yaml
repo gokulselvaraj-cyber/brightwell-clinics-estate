@@ -1,0 +1,6 @@
+service: visit-summary
+slos:
+  - name: availability
+    objective: 99.0
+    window: 30d
+    note: clinicians can fall back to writing the letter by hand

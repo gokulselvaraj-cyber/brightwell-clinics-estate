@@ -1,0 +1,5 @@
+llm:
+  gateway_url: https://llm-gateway.brightwell.internal/v1/chat/completions
+  timeout_seconds: 30
+database:
+  host: appointments-db.bw-prod.internal

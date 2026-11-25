@@ -1,0 +1,18 @@
+code: BW-CRK-01
+name: Brightwell Douglas
+town: Cork
+nation: IE
+timezone: Europe/Dublin
+data_region: eu-west-1
+opened: 2020
+rooms: 7
+specialties: [MSK, CARD, URO]
+opening_hours:
+    mon: 08:00-19:00
+    tue: 08:00-19:00
+    wed: 08:00-19:00
+    thu: 08:00-19:00
+    fri: 08:00-19:00
+    sat: closed
+reminder_language: en-IE
+currency: EUR

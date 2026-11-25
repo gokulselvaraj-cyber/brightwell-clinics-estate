@@ -1,0 +1,122 @@
+[
+ {
+  "appointment_ref": "BWA-TEST000001",
+  "patient_ref": "TEST-PATIENT-0002",
+  "clinic_code": "BW-LDN-02",
+  "specialty_code": "MSK",
+  "starts_at": "2026-02-11T10:30:00Z",
+  "status": "SEEN"
+ },
+ {
+  "appointment_ref": "BWA-TEST000002",
+  "patient_ref": "TEST-PATIENT-0003",
+  "clinic_code": "BW-LDN-03",
+  "specialty_code": "MSK",
+  "starts_at": "2026-03-12T11:00:00Z",
+  "status": "NO_SHOW"
+ },
+ {
+  "appointment_ref": "BWA-TEST000003",
+  "patient_ref": "TEST-PATIENT-0004",
+  "clinic_code": "BW-LDN-04",
+  "specialty_code": "DERM",
+  "starts_at": "2026-04-13T12:30:00Z",
+  "status": "CANCELLED"
+ },
+ {
+  "appointment_ref": "BWA-TEST000004",
+  "patient_ref": "TEST-PATIENT-0005",
+  "clinic_code": "BW-LDN-05",
+  "specialty_code": "MSK",
+  "starts_at": "2026-05-14T13:00:00Z",
+  "status": "LATE_CANCELLED"
+ },
+ {
+  "appointment_ref": "BWA-TEST000005",
+  "patient_ref": "TEST-PATIENT-0006",
+  "clinic_code": "BW-LDN-06",
+  "specialty_code": "DERM",
+  "starts_at": "2026-06-15T14:30:00Z",
+  "status": "BOOKED"
+ },
+ {
+  "appointment_ref": "BWA-TEST000006",
+  "patient_ref": "TEST-PATIENT-0007",
+  "clinic_code": "BW-MAN-01",
+  "specialty_code": "MSK",
+  "starts_at": "2026-07-16T15:00:00Z",
+  "status": "SEEN"
+ },
+ {
+  "appointment_ref": "BWA-TEST000007",
+  "patient_ref": "TEST-PATIENT-0008",
+  "clinic_code": "BW-MAN-02",
+  "specialty_code": "ENT",
+  "starts_at": "2026-08-17T16:30:00Z",
+  "status": "NO_SHOW"
+ },
+ {
+  "appointment_ref": "BWA-TEST000008",
+  "patient_ref": "TEST-PATIENT-0009",
+  "clinic_code": "BW-LDS-01",
+  "specialty_code": "GAST",
+  "starts_at": "2026-09-18T09:00:00Z",
+  "status": "CANCELLED"
+ },
+ {
+  "appointment_ref": "BWA-TEST000009",
+  "patient_ref": "TEST-PATIENT-0010",
+  "clinic_code": "BW-BRS-01",
+  "specialty_code": "MSK",
+  "starts_at": "2026-01-19T10:30:00Z",
+  "status": "LATE_CANCELLED"
+ },
+ {
+  "appointment_ref": "BWA-TEST000010",
+  "patient_ref": "TEST-PATIENT-0011",
+  "clinic_code": "BW-BHM-01",
+  "specialty_code": "CARD",
+  "starts_at": "2026-02-10T11:00:00Z",
+  "status": "BOOKED"
+ },
+ {
+  "appointment_ref": "BWA-TEST000011",
+  "patient_ref": "TEST-PATIENT-0012",
+  "clinic_code": "BW-BHM-02",
+  "specialty_code": "MSK",
+  "starts_at": "2026-03-11T12:30:00Z",
+  "status": "SEEN"
+ },
+ {
+  "appointment_ref": "BWA-TEST000012",
+  "patient_ref": "TEST-PATIENT-0001",
+  "clinic_code": "BW-LEI-01",
+  "specialty_code": "DERM",
+  "starts_at": "2026-04-12T13:00:00Z",
+  "status": "NO_SHOW"
+ },
+ {
+  "appointment_ref": "BWA-TEST000013",
+  "patient_ref": "TEST-PATIENT-0002",
+  "clinic_code": "BW-NOT-01",
+  "specialty_code": "MSK",
+  "starts_at": "2026-05-13T14:30:00Z",
+  "status": "CANCELLED"
+ },
+ {
+  "appointment_ref": "BWA-TEST000014",
+  "patient_ref": "TEST-PATIENT-0003",
+  "clinic_code": "BW-OXF-01",
+  "specialty_code": "NEUR",
+  "starts_at": "2026-06-14T15:00:00Z",
+  "status": "LATE_CANCELLED"
+ },
+ {
+  "appointment_ref": "BWA-TEST000015",
+  "patient_ref": "TEST-PATIENT-0004",
+  "clinic_code": "BW-CAM-01",
+  "specialty_code": "CARD",
+  "starts_at": "2026-07-15T16:30:00Z",
+  "status": "BOOKED"
+ }
+]

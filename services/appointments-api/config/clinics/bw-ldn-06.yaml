@@ -1,0 +1,17 @@
+code: BW-LDN-06
+name: Brightwell Wimbledon
+town: London
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2023
+rooms: 3
+specialties: [DERM, PAED, GAST]
+opening_hours:
+    mon: 08:30-20:00
+    tue: 08:30-20:00
+    wed: 08:30-20:00
+    thu: 08:30-20:00
+    fri: 08:30-20:00
+    sat: closed
+reminder_language: en-GB

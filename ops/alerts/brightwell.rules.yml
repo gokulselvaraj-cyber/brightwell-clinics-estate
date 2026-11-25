@@ -1,0 +1,19 @@
+groups:
+  - name: brightwell
+    rules:
+      - alert: AppointmentsApiErrors
+        expr: sum(rate(http_requests_total{job="appointments-api",status=~"5.."}[5m]))
+              / sum(rate(http_requests_total{job="appointments-api"}[5m])) > 0.02
+        for: 10m
+        labels: {severity: page, team: patient-access}
+      - alert: RemindersFailing
+        expr: increase(bw_reminders_failed_total[30m]) > 50
+        for: 5m
+        labels: {severity: ticket}
+      - alert: VisitSummaryLatencyHigh
+        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{job="visit-summary"}[5m])) by (le)) > 20
+        for: 15m
+        labels: {severity: ticket, team: clinical-apps}
+      - alert: NightlyLoadLate
+        expr: time() - airflow_dag_last_success_timestamp{dag_id="nightly_reporting_load"} > 30 * 3600
+        labels: {severity: ticket, team: data-insight}

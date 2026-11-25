@@ -1,0 +1,18 @@
+code: BW-RDG-01
+name: Brightwell Caversham
+town: Reading
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2022
+rooms: 5
+specialties: [MSK, ENT]
+opening_hours:
+    mon: 08:30-20:00
+    tue: 08:30-20:00
+    wed: 08:30-20:00
+    thu: 08:30-20:00
+    fri: 08:30-20:00
+    sat: closed
+reminder_language: en-GB
+parking: limited, patients asked to arrive 10 minutes early

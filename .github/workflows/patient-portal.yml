@@ -1,0 +1,21 @@
+name: patient-portal
+on:
+  push:
+    branches: [main]
+    paths: ["web/patient-portal/**"]
+  pull_request:
+    paths: ["web/patient-portal/**"]
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: web/patient-portal
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "20"}
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build

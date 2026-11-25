@@ -1,0 +1,36 @@
+2026-11-19T07:00:01Z INFO  poller claimed=40 sent=40 failed=0 to=*******900
+2026-11-19T07:10:01Z INFO  poller claimed=43 sent=43 failed=0 to=*******901
+2026-11-19T07:20:01Z INFO  poller claimed=46 sent=46 failed=0 to=*******902
+2026-11-19T07:30:01Z INFO  poller claimed=49 sent=49 failed=0 to=*******903
+2026-11-19T07:40:03Z WARN  sender relaypost 429 rate limited, retry in 2s outbox_id=880104
+2026-11-19T07:50:01Z INFO  poller claimed=55 sent=55 failed=0 to=*******905
+2026-11-19T08:00:01Z INFO  poller claimed=58 sent=58 failed=0 to=*******906
+2026-11-19T08:10:04Z ERROR sender relaypost 400 invalid number to=*******907 outbox_id=880107
+2026-11-19T08:20:01Z INFO  poller claimed=64 sent=64 failed=0 to=*******908
+2026-11-19T08:30:01Z INFO  poller claimed=67 sent=67 failed=0 to=*******909
+2026-11-19T08:40:01Z INFO  poller claimed=70 sent=70 failed=0 to=*******910
+2026-11-19T08:50:01Z INFO  poller claimed=73 sent=73 failed=0 to=*******911
+2026-11-19T09:00:01Z INFO  poller claimed=76 sent=76 failed=0 to=*******912
+2026-11-19T09:10:03Z WARN  sender relaypost 429 rate limited, retry in 2s outbox_id=880113
+2026-11-19T09:20:01Z INFO  poller claimed=82 sent=82 failed=0 to=*******914
+2026-11-19T09:30:01Z INFO  poller claimed=85 sent=85 failed=0 to=*******915
+2026-11-19T09:40:01Z INFO  poller claimed=88 sent=88 failed=0 to=*******916
+2026-11-19T09:50:01Z INFO  poller claimed=91 sent=91 failed=0 to=*******917
+2026-11-19T10:00:01Z INFO  poller claimed=94 sent=94 failed=0 to=*******918
+2026-11-19T10:10:01Z INFO  poller claimed=97 sent=97 failed=0 to=*******919
+2026-11-19T10:20:04Z ERROR sender relaypost 400 invalid number to=*******920 outbox_id=880120
+2026-11-19T10:30:01Z INFO  poller claimed=103 sent=103 failed=0 to=*******921
+2026-11-19T10:40:03Z WARN  sender relaypost 429 rate limited, retry in 2s outbox_id=880122
+2026-11-19T10:50:01Z INFO  poller claimed=109 sent=109 failed=0 to=*******923
+2026-11-19T11:00:01Z INFO  poller claimed=42 sent=42 failed=0 to=*******924
+2026-11-19T11:10:01Z INFO  poller claimed=45 sent=45 failed=0 to=*******925
+2026-11-19T11:20:01Z INFO  poller claimed=48 sent=48 failed=0 to=*******926
+2026-11-19T11:30:01Z INFO  poller claimed=51 sent=51 failed=0 to=*******927
+2026-11-19T11:40:01Z INFO  poller claimed=54 sent=54 failed=0 to=*******928
+2026-11-19T11:50:01Z INFO  poller claimed=57 sent=57 failed=0 to=*******929
+2026-11-19T12:00:01Z INFO  poller claimed=60 sent=60 failed=0 to=*******930
+2026-11-19T12:10:03Z WARN  sender relaypost 429 rate limited, retry in 2s outbox_id=880131
+2026-11-19T12:20:01Z INFO  poller claimed=66 sent=66 failed=0 to=*******932
+2026-11-19T12:30:04Z ERROR sender relaypost 400 invalid number to=*******933 outbox_id=880133
+2026-11-19T12:40:01Z INFO  poller claimed=72 sent=72 failed=0 to=*******934
+2026-11-19T12:50:01Z INFO  poller claimed=75 sent=75 failed=0 to=*******935

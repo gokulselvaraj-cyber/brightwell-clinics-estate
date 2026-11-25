@@ -1,0 +1,17 @@
+code: BW-LDS-01
+name: Brightwell Wellington Place
+town: Leeds
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2016
+rooms: 6
+specialties: [GAST, URO, ENDO]
+opening_hours:
+    mon: 08:00-20:00
+    tue: 08:00-20:00
+    wed: 08:00-20:00
+    thu: 08:00-20:00
+    fri: 08:00-20:00
+    sat: 09:00-13:00
+reminder_language: en-GB

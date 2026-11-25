@@ -1,0 +1,11 @@
+flowchart LR
+  ClinicStep --> SlotStep --> DetailsStep --> ConfirmStep
+  ConfirmStep -->|POST /v1/appointments| book_appointment
+  book_appointment --> BookingService.book
+  BookingService.book --> NoShowPolicy.is_restricted
+  BookingService.book --> SlotRepository.reserve
+  BookingService.book --> PatientRepository.upsert
+  BookingService.book --> AppointmentRepository.insert
+  AppointmentRepository.insert --> ReminderScheduler.schedule
+  ReminderScheduler.schedule -->|bw.reminder_outbox| OutboxPoller.poll
+  OutboxPoller.poll --> ReminderSender.send --> RelayPost[(RelayPost SMS)]

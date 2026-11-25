@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-portal
+  labels: {app: patient-portal}
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: patient-portal}
+  template:
+    metadata:
+      labels: {app: patient-portal}
+    spec:
+      containers:
+        - name: patient-portal
+          image: ghcr.io/brightwell/patient-portal:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef: {name: patient-portal-config}
+            - secretRef: {name: patient-portal-secrets, optional: true}
+          readinessProbe:
+            httpGet: {path: /, port: 8080}
+            periodSeconds: 10
+          resources:
+            requests: {cpu: 50m, memory: 64Mi}
+            limits: {memory: 64Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patient-portal
+spec:
+  selector: {app: patient-portal}
+  ports:
+    - port: 8080
+      targetPort: 8080

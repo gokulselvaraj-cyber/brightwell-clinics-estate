@@ -1,0 +1,18 @@
+code: BW-KKY-01
+name: Brightwell Cill Chainnigh
+town: Kilkenny
+nation: IE
+timezone: Europe/Dublin
+data_region: eu-west-1
+opened: 2024
+rooms: 5
+specialties: [DERM]
+opening_hours:
+    mon: 08:30-19:00
+    tue: 08:30-19:00
+    wed: 08:30-19:00
+    thu: 08:30-19:00
+    fri: 08:30-19:00
+    sat: closed
+reminder_language: en-IE
+currency: EUR

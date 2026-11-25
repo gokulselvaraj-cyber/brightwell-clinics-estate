@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appointments-api
+spec:
+  replicas: 2
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appointments-api-config
+data:
+  BW_ENV: "test"
+  VISIT_SUMMARY_URL: "http://visit-summary.bw-test.svc.cluster.local:8080"

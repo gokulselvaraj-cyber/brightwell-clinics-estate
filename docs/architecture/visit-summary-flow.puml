@@ -1,0 +1,10 @@
+@startuml
+actor Clinician
+Clinician -> "appointments-api" : POST /v1/visits/{id}/summary
+"appointments-api" -> "visit-summary" : POST /v1/summaries
+"visit-summary" -> "visit-summary" : strip_identifiers (NHS no., PPSN)
+"visit-summary" -> "LLM gateway" : chat/completions (bw-clinsum-2)
+"visit-summary" -> "appointmentsdb" : insert bw.visit_summary
+Clinician -> "visit-summary" : sign
+"visit-summary" -> "S3 bw-visit-summaries-euw2" : put signed/
+@enduml

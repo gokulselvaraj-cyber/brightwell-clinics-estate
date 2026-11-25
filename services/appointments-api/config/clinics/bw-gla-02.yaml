@@ -1,0 +1,17 @@
+code: BW-GLA-02
+name: Brightwell Bearsden
+town: Glasgow
+nation: SCO
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2022
+rooms: 3
+specialties: [PAED, AUD]
+opening_hours:
+    mon: 08:30-19:00
+    tue: 08:30-19:00
+    wed: 08:30-19:00
+    thu: 08:30-19:00
+    fri: 08:30-19:00
+    sat: closed
+reminder_language: en-GB

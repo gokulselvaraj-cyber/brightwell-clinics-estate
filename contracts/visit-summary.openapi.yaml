@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: Brightwell visit summary
+  version: 1.4.2
+servers:
+  - url: http://visit-summary:8070
+paths:
+  /v1/summaries:
+    post:
+      operationId: createSummary
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/SummaryRequest"}
+      responses:
+        "201":
+          description: Draft created
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/SummaryDraft"}
+  /v1/summaries/{summary_id}:
+    get:
+      operationId: getSummary
+      parameters: [{name: summary_id, in: path, required: true, schema: {type: string, format: uuid}}]
+      responses:
+        "200": {description: Draft}
+  /v1/summaries/{summary_id}/sign:
+    post:
+      operationId: signSummary
+      parameters: [{name: summary_id, in: path, required: true, schema: {type: string, format: uuid}}]
+      responses:
+        "200": {description: Signed and archived}
+components:
+  schemas:
+    SummaryRequest:
+      type: object
+      required: [visit_id, subject_ref, clinician_notes, requested_by]
+      properties:
+        visit_id: {type: integer}
+        subject_ref: {type: string, description: "The patient, as appt:<appointment id>"}
+        procedure_code: {type: string}
+        clinician_notes: {type: string, description: Free text; may contain personal data}
+        requested_by: {type: string}
+    SummaryDraft:
+      type: object
+      properties:
+        summary_id: {type: string, format: uuid}
+        visit_id: {type: integer}
+        status: {type: string, enum: [DRAFT, SIGNED, REJECTED]}
+        text: {type: string}
+        model: {type: string}

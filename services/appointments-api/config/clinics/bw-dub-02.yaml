@@ -1,0 +1,19 @@
+code: BW-DUB-02
+name: Brightwell Sandyford
+town: Dublin
+nation: IE
+timezone: Europe/Dublin
+data_region: eu-west-1
+opened: 2020
+rooms: 4
+specialties: [MSK, PAED, OPHT]
+opening_hours:
+    mon: 08:30-19:00
+    tue: 08:30-19:00
+    wed: 08:30-19:00
+    thu: 08:30-19:00
+    fri: 08:30-19:00
+    sat: closed
+reminder_language: en-IE
+currency: EUR
+parking: limited, patients asked to arrive 10 minutes early

@@ -1,0 +1,17 @@
+code: BW-LDN-03
+name: Brightwell Richmond
+town: London
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2017
+rooms: 5
+specialties: [MSK, PAED, AUD, ENT]
+opening_hours:
+    mon: 08:00-20:00
+    tue: 08:00-20:00
+    wed: 08:00-20:00
+    thu: 08:00-20:00
+    fri: 08:00-20:00
+    sat: closed
+reminder_language: en-GB

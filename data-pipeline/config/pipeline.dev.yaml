@@ -1,0 +1,4 @@
+source_conn_id: appointmentsdb_replica_dev
+warehouse_conn_id: bwreporting_dev
+extract_lookback_days: 3
+publish: false

@@ -1,0 +1,111 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: brightwell-patient-platform
+  description: Booking, reminders, check-in, visit summaries and reporting for Brightwell Clinics
+spec:
+  owner: group:team-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: appointments-api
+  annotations:
+    backstage.io/source-location: url:./services/appointments-api
+spec:
+  type: service
+  lifecycle: production
+  owner: group:team-patient-access
+  system: brightwell-patient-platform
+  providesApis: [appointments-api]
+  dependsOn: [resource:appointmentsdb, component:visit-summary]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: visit-summary
+  description: AI visit-summary drafts (LLM gateway)
+  annotations:
+    backstage.io/source-location: url:./services/visit-summary
+spec:
+  type: service
+  lifecycle: production
+  owner: group:team-ai-enablement
+  system: brightwell-patient-platform
+  providesApis: [visit-summary-api]
+  dependsOn: [resource:appointmentsdb]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: patient-portal
+  annotations:
+    backstage.io/source-location: url:./web/patient-portal
+spec:
+  type: website
+  lifecycle: production
+  owner: group:team-digital-front-door
+  system: brightwell-patient-platform
+  consumesApis: [appointments-api]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: data-pipeline
+  description: Nightly reporting load into bwreporting
+spec:
+  type: data-pipeline
+  lifecycle: production
+  owner: group:team-data-insight
+  system: brightwell-patient-platform
+  dependsOn: [resource:appointmentsdb]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: appointmentsdb
+spec:
+  type: database
+  owner: group:team-patient-access
+  system: brightwell-patient-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: appointments-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:team-patient-access
+  definition:
+    $text: ./contracts/appointments.openapi.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: visit-summary-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:team-ai-enablement
+  definition:
+    $text: ./contracts/visit-summary.openapi.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: team-ai-enablement
+spec:
+  type: team
+  children: []
+  members: [user:n.adeyemi]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: n.adeyemi
+spec:
+  profile:
+    displayName: N. Adeyemi
+    email: n.adeyemi@brightwell-clinics.example
+  memberOf: [team-ai-enablement]

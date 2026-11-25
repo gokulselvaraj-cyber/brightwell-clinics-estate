@@ -1,0 +1,17 @@
+code: BW-OXF-01
+name: Brightwell Headington
+town: Oxford
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2019
+rooms: 7
+specialties: [NEUR, ENDO, RESP]
+opening_hours:
+    mon: 08:00-20:00
+    tue: 08:00-20:00
+    wed: 08:00-20:00
+    thu: 08:00-20:00
+    fri: 08:00-20:00
+    sat: closed
+reminder_language: en-GB

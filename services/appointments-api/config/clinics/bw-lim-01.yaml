@@ -1,0 +1,18 @@
+code: BW-LIM-01
+name: Brightwell Castletroy
+town: Limerick
+nation: IE
+timezone: Europe/Dublin
+data_region: eu-west-1
+opened: 2023
+rooms: 4
+specialties: [MSK, ENDO]
+opening_hours:
+    mon: 08:00-18:00
+    tue: 08:00-18:00
+    wed: 08:00-18:00
+    thu: 08:00-18:00
+    fri: 08:00-18:00
+    sat: 09:00-13:00
+reminder_language: en-IE
+currency: EUR

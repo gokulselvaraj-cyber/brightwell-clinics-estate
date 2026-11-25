@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: bw-prod
+resources:
+  - ../../base
+  - pdb.yaml
+  - hpa-appointments-api.yaml
+patches:
+  - path: appointments-api.yaml
+  - path: visit-summary.yaml
+  - path: reminder-worker.yaml
+  - path: patient-portal.yaml
+images:
+  - name: ghcr.io/brightwell/appointments-api
+    newTag: "2026.11.18"
+  - name: ghcr.io/brightwell/visit-summary
+    newTag: "2026.11.18"
+  - name: ghcr.io/brightwell/reminder-worker
+    newTag: "2026.11.18"
+  - name: ghcr.io/brightwell/patient-portal
+    newTag: "2026.11.18"

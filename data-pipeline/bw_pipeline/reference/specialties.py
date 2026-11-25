@@ -1,0 +1,15 @@
+SPECIALTIES = {
+    "DERM": "Dermatology",
+    "MSK": "Musculoskeletal and physiotherapy",
+    "ENT": "Ear, nose and throat",
+    "OPHT": "Ophthalmology",
+    "CARD": "Cardiology",
+    "GAST": "Gastroenterology",
+    "GYN": "Gynaecology",
+    "URO": "Urology",
+    "ENDO": "Endocrinology",
+    "RESP": "Respiratory",
+    "NEUR": "Neurology",
+    "PAED": "Paediatrics",
+    "AUD": "Audiology",
+}

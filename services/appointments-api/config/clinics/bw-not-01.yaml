@@ -1,0 +1,17 @@
+code: BW-NOT-01
+name: Brightwell Lace Market
+town: Nottingham
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2018
+rooms: 6
+specialties: [MSK, OPHT, URO]
+opening_hours:
+    mon: 08:30-19:00
+    tue: 08:30-19:00
+    wed: 08:30-19:00
+    thu: 08:30-19:00
+    fri: 08:30-19:00
+    sat: closed
+reminder_language: en-GB

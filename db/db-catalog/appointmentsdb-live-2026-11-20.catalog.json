@@ -1,0 +1,557 @@
+{
+ "format": "msock-db-catalog/1",
+ "engine": "postgresql",
+ "database": "appointmentsdb",
+ "server_version": "15.10",
+ "exported_at": "2026-11-20T03:40:00Z",
+ "exported_by": "platform DBA catalogue job (read-only role bw_catalog)",
+ "note": "Structure only: no row samples are exported.",
+ "schemas": [
+  {
+   "name": "bw",
+   "tables": [
+    {
+     "name": "patient",
+     "kind": "table",
+     "comment": null,
+     "row_estimate": 1840221,
+     "columns": [
+      {
+       "name": "id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 1
+      },
+      {
+       "name": "patient_ref",
+       "data_type": "character varying(16)",
+       "nullable": false,
+       "ordinal": 2
+      },
+      {
+       "name": "given_name",
+       "data_type": "character varying(80)",
+       "nullable": false,
+       "ordinal": 3
+      },
+      {
+       "name": "family_name",
+       "data_type": "character varying(80)",
+       "nullable": false,
+       "ordinal": 4
+      },
+      {
+       "name": "date_of_birth",
+       "data_type": "date",
+       "nullable": false,
+       "ordinal": 5,
+       "comment": "PII"
+      },
+      {
+       "name": "nhs_number",
+       "data_type": "character varying(10)",
+       "nullable": true,
+       "ordinal": 6,
+       "comment": "PII: national health identifier (UK)"
+      },
+      {
+       "name": "phone",
+       "data_type": "character varying(20)",
+       "nullable": true,
+       "ordinal": 7,
+       "comment": "PII: used for SMS reminders"
+      },
+      {
+       "name": "email",
+       "data_type": "character varying(254)",
+       "nullable": true,
+       "ordinal": 8
+      },
+      {
+       "name": "address_line1",
+       "data_type": "character varying(120)",
+       "nullable": true,
+       "ordinal": 9,
+       "comment": "PII"
+      },
+      {
+       "name": "postcode",
+       "data_type": "character varying(8)",
+       "nullable": true,
+       "ordinal": 10
+      },
+      {
+       "name": "home_clinic_code",
+       "data_type": "character varying(9)",
+       "nullable": false,
+       "ordinal": 11
+      },
+      {
+       "name": "last_attended_at",
+       "data_type": "timestamp with time zone",
+       "nullable": true,
+       "ordinal": 12
+      },
+      {
+       "name": "created_at",
+       "data_type": "timestamp with time zone",
+       "nullable": false,
+       "ordinal": 13,
+       "default": "now()"
+      },
+      {
+       "name": "ppsn",
+       "data_type": "character varying(9)",
+       "nullable": true,
+       "ordinal": 14,
+       "comment": "PII: Irish personal public service number"
+      },
+      {
+       "name": "eircode",
+       "data_type": "character varying(8)",
+       "nullable": true,
+       "ordinal": 15,
+       "comment": "PII"
+      },
+      {
+       "name": "gp_practice_code",
+       "data_type": "character varying(8)",
+       "nullable": true,
+       "ordinal": 16
+      }
+     ],
+     "primary_key": {
+      "name": "patient_pkey",
+      "columns": [
+       "id"
+      ]
+     },
+     "foreign_keys": [
+      {
+       "name": "patient_home_clinic_code_fkey",
+       "columns": [
+        "home_clinic_code"
+       ],
+       "references": {
+        "table": "bw.clinic",
+        "columns": [
+         "code"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "name": "appointment",
+     "kind": "table",
+     "comment": null,
+     "row_estimate": 6120554,
+     "columns": [
+      {
+       "name": "id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 1
+      },
+      {
+       "name": "appointment_ref",
+       "data_type": "character varying(14)",
+       "nullable": false,
+       "ordinal": 2
+      },
+      {
+       "name": "patient_id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 3
+      },
+      {
+       "name": "slot_id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 4
+      },
+      {
+       "name": "clinic_code",
+       "data_type": "character varying(9)",
+       "nullable": false,
+       "ordinal": 5
+      },
+      {
+       "name": "specialty_code",
+       "data_type": "character varying(4)",
+       "nullable": false,
+       "ordinal": 6
+      },
+      {
+       "name": "procedure_code",
+       "data_type": "character varying(9)",
+       "nullable": true,
+       "ordinal": 7
+      },
+      {
+       "name": "referral_id",
+       "data_type": "bigint",
+       "nullable": true,
+       "ordinal": 8
+      },
+      {
+       "name": "status",
+       "data_type": "bw.appointment_status",
+       "nullable": false,
+       "ordinal": 9,
+       "default": "'BOOKED'::bw.appointment_status"
+      },
+      {
+       "name": "starts_at",
+       "data_type": "timestamp with time zone",
+       "nullable": false,
+       "ordinal": 10
+      },
+      {
+       "name": "booked_via",
+       "data_type": "character varying(10)",
+       "nullable": false,
+       "ordinal": 11,
+       "default": "'PORTAL'::character varying"
+      },
+      {
+       "name": "cancelled_at",
+       "data_type": "timestamp with time zone",
+       "nullable": true,
+       "ordinal": 12
+      }
+     ],
+     "primary_key": {
+      "name": "appointment_pkey",
+      "columns": [
+       "id"
+      ]
+     },
+     "foreign_keys": [
+      {
+       "name": "appointment_patient_id_fkey",
+       "columns": [
+        "patient_id"
+       ],
+       "references": {
+        "table": "bw.patient",
+        "columns": [
+         "id"
+        ]
+       }
+      },
+      {
+       "name": "appointment_slot_id_fkey",
+       "columns": [
+        "slot_id"
+       ],
+       "references": {
+        "table": "bw.slot",
+        "columns": [
+         "id"
+        ]
+       }
+      },
+      {
+       "name": "appointment_clinic_code_fkey",
+       "columns": [
+        "clinic_code"
+       ],
+       "references": {
+        "table": "bw.clinic",
+        "columns": [
+         "code"
+        ]
+       }
+      },
+      {
+       "name": "appointment_referral_id_fkey",
+       "columns": [
+        "referral_id"
+       ],
+       "references": {
+        "table": "bw.referral",
+        "columns": [
+         "id"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "name": "visit",
+     "kind": "table",
+     "comment": null,
+     "row_estimate": 4380117,
+     "columns": [
+      {
+       "name": "id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 1
+      },
+      {
+       "name": "appointment_id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 2
+      },
+      {
+       "name": "clinician_id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 3
+      },
+      {
+       "name": "procedure_code",
+       "data_type": "character varying(9)",
+       "nullable": true,
+       "ordinal": 4
+      },
+      {
+       "name": "clinician_notes",
+       "data_type": "text",
+       "nullable": true,
+       "ordinal": 5,
+       "comment": "PII + health data (special category)"
+      },
+      {
+       "name": "outcome",
+       "data_type": "character varying(12)",
+       "nullable": true,
+       "ordinal": 6
+      },
+      {
+       "name": "closed_at",
+       "data_type": "timestamp with time zone",
+       "nullable": true,
+       "ordinal": 7
+      }
+     ],
+     "primary_key": {
+      "name": "visit_pkey",
+      "columns": [
+       "id"
+      ]
+     },
+     "foreign_keys": [
+      {
+       "name": "visit_appointment_id_fkey",
+       "columns": [
+        "appointment_id"
+       ],
+       "references": {
+        "table": "bw.appointment",
+        "columns": [
+         "id"
+        ]
+       }
+      },
+      {
+       "name": "visit_clinician_id_fkey",
+       "columns": [
+        "clinician_id"
+       ],
+       "references": {
+        "table": "bw.clinician",
+        "columns": [
+         "id"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "name": "visit_summary",
+     "kind": "table",
+     "comment": "AI-drafted visit summaries; health data. Retention 2 years (V7).",
+     "row_estimate": 212904,
+     "columns": [
+      {
+       "name": "summary_id",
+       "data_type": "uuid",
+       "nullable": false,
+       "ordinal": 1
+      },
+      {
+       "name": "visit_id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 2
+      },
+      {
+       "name": "status",
+       "data_type": "character varying(10)",
+       "nullable": false,
+       "ordinal": 3,
+       "default": "'DRAFT'::character varying"
+      },
+      {
+       "name": "summary_text",
+       "data_type": "text",
+       "nullable": false,
+       "ordinal": 4
+      },
+      {
+       "name": "model_version",
+       "data_type": "character varying(40)",
+       "nullable": true,
+       "ordinal": 5
+      },
+      {
+       "name": "requested_by",
+       "data_type": "character varying(64)",
+       "nullable": false,
+       "ordinal": 6
+      },
+      {
+       "name": "created_at",
+       "data_type": "timestamp with time zone",
+       "nullable": false,
+       "ordinal": 7,
+       "default": "now()"
+      },
+      {
+       "name": "signed_at",
+       "data_type": "timestamp with time zone",
+       "nullable": true,
+       "ordinal": 8
+      },
+      {
+       "name": "prompt_text",
+       "data_type": "text",
+       "nullable": true,
+       "ordinal": 9
+      }
+     ],
+     "primary_key": {
+      "name": "visit_summary_pkey",
+      "columns": [
+       "summary_id"
+      ]
+     },
+     "foreign_keys": [
+      {
+       "name": "visit_summary_visit_id_fkey",
+       "columns": [
+        "visit_id"
+       ],
+       "references": {
+        "table": "bw.visit",
+        "columns": [
+         "id"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "name": "reminder_outbox",
+     "kind": "table",
+     "comment": null,
+     "row_estimate": 389002,
+     "columns": [
+      {
+       "name": "id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 1
+      },
+      {
+       "name": "appointment_id",
+       "data_type": "bigint",
+       "nullable": false,
+       "ordinal": 2
+      },
+      {
+       "name": "channel",
+       "data_type": "character varying(6)",
+       "nullable": false,
+       "ordinal": 3
+      },
+      {
+       "name": "due_at",
+       "data_type": "timestamp with time zone",
+       "nullable": false,
+       "ordinal": 4
+      },
+      {
+       "name": "status",
+       "data_type": "character varying(8)",
+       "nullable": false,
+       "ordinal": 5,
+       "default": "'PENDING'::character varying"
+      },
+      {
+       "name": "attempts",
+       "data_type": "integer",
+       "nullable": false,
+       "ordinal": 6,
+       "default": "0"
+      },
+      {
+       "name": "provider_message_id",
+       "data_type": "character varying(40)",
+       "nullable": true,
+       "ordinal": 7
+      }
+     ],
+     "primary_key": {
+      "name": "reminder_outbox_pkey",
+      "columns": [
+       "id"
+      ]
+     },
+     "foreign_keys": [
+      {
+       "name": "reminder_outbox_appointment_id_fkey",
+       "columns": [
+        "appointment_id"
+       ],
+       "references": {
+        "table": "bw.appointment",
+        "columns": [
+         "id"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "name": "app_setting",
+     "kind": "table",
+     "comment": null,
+     "row_estimate": 5,
+     "columns": [
+      {
+       "name": "key",
+       "data_type": "character varying(64)",
+       "nullable": false,
+       "ordinal": 1
+      },
+      {
+       "name": "value",
+       "data_type": "character varying(200)",
+       "nullable": false,
+       "ordinal": 2
+      },
+      {
+       "name": "description",
+       "data_type": "character varying(200)",
+       "nullable": true,
+       "ordinal": 3
+      }
+     ],
+     "primary_key": {
+      "name": "app_setting_pkey",
+      "columns": [
+       "key"
+      ]
+     },
+     "foreign_keys": []
+    }
+   ]
+  }
+ ]
+}

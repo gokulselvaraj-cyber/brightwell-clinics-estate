@@ -1,0 +1,28 @@
+name: visit-summary
+on:
+  push:
+    branches: [main]
+    paths: ["services/visit-summary/**"]
+  pull_request:
+    paths: ["services/visit-summary/**"]
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: services/visit-summary
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -r requirements.txt pytest ruff
+      - run: ruff check .
+      - run: pytest -q
+  build:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t ghcr.io/brightwell/visit-summary:${{ github.sha }} services/visit-summary
+      - run: docker push ghcr.io/brightwell/visit-summary:${{ github.sha }}

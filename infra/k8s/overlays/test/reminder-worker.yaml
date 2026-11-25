@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reminder-worker
+spec:
+  replicas: 1
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: reminder-worker-config
+data:
+  DB_HOST: "appointments-db.bw-test.internal"
+  DB_PORT: "5432"
+  RELAYPOST_DRY_RUN: "true"

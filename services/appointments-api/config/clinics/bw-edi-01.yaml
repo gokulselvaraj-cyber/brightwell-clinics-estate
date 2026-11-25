@@ -1,0 +1,17 @@
+code: BW-EDI-01
+name: Brightwell Haymarket
+town: Edinburgh
+nation: SCO
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2016
+rooms: 6
+specialties: [DERM, CARD, GYN, NEUR]
+opening_hours:
+    mon: 08:30-20:00
+    tue: 08:30-20:00
+    wed: 08:30-20:00
+    thu: 08:30-20:00
+    fri: 08:30-20:00
+    sat: closed
+reminder_language: en-GB

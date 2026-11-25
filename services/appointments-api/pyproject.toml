@@ -1,0 +1,11 @@
+[project]
+name = "brightwell-appointments"
+version = "2.7.0"
+requires-python = ">=3.11"
+description = "Brightwell Clinics appointments API"
+
+[tool.ruff]
+line-length = 110
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

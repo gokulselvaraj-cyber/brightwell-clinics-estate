@@ -1,0 +1,2 @@
+Summarise these clinic notes for the patient in under 250 words. Be friendly.
+(v1, Feb 2025. Replaced by visit-summary.prompt.txt after the CS-12 safety review.)

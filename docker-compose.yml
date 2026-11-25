@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: appointmentsdb
+      POSTGRES_USER: bw_owner
+      POSTGRES_PASSWORD: ${LOCAL_DB_PASSWORD}
+    ports: ["5432:5432"]
+  appointments-api:
+    build: services/appointments-api
+    environment:
+      BW_ENV: dev
+      BW_DATABASE__HOST: postgres
+      DB_PASSWORD: ${LOCAL_DB_PASSWORD}
+      BW_VISIT_SUMMARY__URL: http://visit-summary:8070
+    ports: ["8000:8000"]
+    depends_on: [postgres]
+  visit-summary:
+    build: services/visit-summary
+    environment:
+      VISIT_SUMMARY_LLM_ENABLED: "false"
+    ports: ["8070:8070"]
+  reminder-worker:
+    build: {context: ., dockerfile: services/reminder-worker/Dockerfile}
+    environment:
+      DB_HOST: postgres
+      RELAYPOST_DRY_RUN: "true"
+  patient-portal:
+    build: web/patient-portal
+    ports: ["8080:8080"]

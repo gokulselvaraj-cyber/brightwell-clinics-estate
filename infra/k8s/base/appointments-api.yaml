@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appointments-api
+  labels: {app: appointments-api}
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: appointments-api}
+  template:
+    metadata:
+      labels: {app: appointments-api}
+    spec:
+      containers:
+        - name: appointments-api
+          image: ghcr.io/brightwell/appointments-api:latest
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef: {name: appointments-api-config}
+            - secretRef: {name: appointments-api-secrets, optional: true}
+          readinessProbe:
+            httpGet: {path: /readyz, port: 8000}
+            periodSeconds: 10
+          resources:
+            requests: {cpu: 250m, memory: 512Mi}
+            limits: {memory: 512Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: appointments-api
+spec:
+  selector: {app: appointments-api}
+  ports:
+    - port: 8000
+      targetPort: 8000

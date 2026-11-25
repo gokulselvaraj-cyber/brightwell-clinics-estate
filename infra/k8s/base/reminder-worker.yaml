@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reminder-worker
+  labels: {app: reminder-worker}
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: reminder-worker}
+  template:
+    metadata:
+      labels: {app: reminder-worker}
+    spec:
+      containers:
+        - name: reminder-worker
+          image: ghcr.io/brightwell/reminder-worker:latest
+          ports:
+            - containerPort: 9102
+          envFrom:
+            - configMapRef: {name: reminder-worker-config}
+            - secretRef: {name: reminder-worker-secrets, optional: true}
+          readinessProbe:
+            httpGet: {path: /metrics, port: 9102}
+            periodSeconds: 10
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {memory: 256Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reminder-worker
+spec:
+  selector: {app: reminder-worker}
+  ports:
+    - port: 9102
+      targetPort: 9102

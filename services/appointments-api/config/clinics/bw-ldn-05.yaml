@@ -1,0 +1,17 @@
+code: BW-LDN-05
+name: Brightwell Croydon
+town: London
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2021
+rooms: 7
+specialties: [MSK, OPHT, CARD]
+opening_hours:
+    mon: 08:00-19:00
+    tue: 08:00-19:00
+    wed: 08:00-19:00
+    thu: 08:00-19:00
+    fri: 08:00-19:00
+    sat: 09:00-13:00
+reminder_language: en-GB

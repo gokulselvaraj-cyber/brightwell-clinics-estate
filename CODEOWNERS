@@ -1,0 +1,12 @@
+# Code owners. Teams are GitHub teams in the brightwell org.
+/services/appointments-api/   @brightwell/patient-access
+/services/visit-summary/      @brightwell/clinical-apps
+/web/patient-portal/          @brightwell/digital-front-door
+/data-pipeline/               @brightwell/data-insight
+/db/                          @brightwell/patient-access
+/contracts/                   @brightwell/patient-access
+/infra/                       @brightwell/platform
+/.github/                     @brightwell/platform
+/docs/governance/             @brightwell/clinical-governance
+/docs/adr/                    @brightwell/architecture
+/vendor/                      @brightwell/platform

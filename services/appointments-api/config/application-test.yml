@@ -1,0 +1,6 @@
+database:
+  host: appointments-db.bw-test.internal
+booking:
+  late_cancel_hours: 24
+visit_summary:
+  url: http://visit-summary.bw-test.svc.cluster.local:8070

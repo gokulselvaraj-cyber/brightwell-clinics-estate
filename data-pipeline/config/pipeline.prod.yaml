@@ -1,0 +1,6 @@
+source_conn_id: appointmentsdb_replica
+warehouse_conn_id: bwreporting
+# reporting.brightwell.internal:5432/bwreporting (eu-west-2)
+extract_lookback_days: 2
+publish: true
+alert_email: data-insight-alerts@brightwell-clinics.example

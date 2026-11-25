@@ -1,0 +1,18 @@
+code: BW-BHM-01
+name: Brightwell Edgbaston
+town: Birmingham
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2015
+rooms: 3
+specialties: [CARD, RESP, NEUR]
+opening_hours:
+    mon: 08:00-19:00
+    tue: 08:00-19:00
+    wed: 08:00-19:00
+    thu: 08:00-19:00
+    fri: 08:00-19:00
+    sat: closed
+reminder_language: en-GB
+parking: limited, patients asked to arrive 10 minutes early

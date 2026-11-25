@@ -1,0 +1,23 @@
+server:
+  port: 8000
+database:
+  host: localhost
+  port: 5432
+  name: appointmentsdb
+  user: bw_app
+  password: ${DB_PASSWORD}
+  pool_size: 10
+booking:
+  late_cancel_hours: 24
+  max_future_days: 120
+  hold_minutes: 10
+reminders:
+  offsets_hours: [48, 2]
+  channel: SMS
+visit_summary:
+  url: http://localhost:8070
+  timeout_seconds: 20
+oidc:
+  issuer: https://login.brightwell.internal
+  audience: appointments-api
+  client_secret: ${OIDC_CLIENT_SECRET}

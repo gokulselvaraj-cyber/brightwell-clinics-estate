@@ -1,0 +1,17 @@
+code: BW-ABD-01
+name: Brightwell Rubislaw
+town: Aberdeen
+nation: SCO
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2021
+rooms: 4
+specialties: [MSK, RESP]
+opening_hours:
+    mon: 08:00-20:00
+    tue: 08:00-20:00
+    wed: 08:00-20:00
+    thu: 08:00-20:00
+    fri: 08:00-20:00
+    sat: closed
+reminder_language: en-GB

@@ -1,0 +1,17 @@
+code: BW-BRS-01
+name: Brightwell Clifton
+town: Bristol
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2017
+rooms: 7
+specialties: [MSK, DERM, GYN]
+opening_hours:
+    mon: 08:30-18:00
+    tue: 08:30-18:00
+    wed: 08:30-18:00
+    thu: 08:30-18:00
+    fri: 08:30-18:00
+    sat: closed
+reminder_language: en-GB

@@ -1,0 +1,69 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.5",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2024-07-01T09:00:00Z",
+  "component": {
+   "type": "application",
+   "name": "brightwell-patient-platform",
+   "version": "2024.07"
+  }
+ },
+ "components": [
+  {
+   "type": "library",
+   "name": "fastapi",
+   "version": "0.95.2",
+   "purl": "pkg:pypi/fastapi@0.95.2"
+  },
+  {
+   "type": "library",
+   "name": "uvicorn",
+   "version": "0.22.0",
+   "purl": "pkg:pypi/uvicorn@0.22.0"
+  },
+  {
+   "type": "library",
+   "name": "sqlalchemy",
+   "version": "1.4.48",
+   "purl": "pkg:pypi/sqlalchemy@1.4.48"
+  },
+  {
+   "type": "library",
+   "name": "pydantic",
+   "version": "1.10.9",
+   "purl": "pkg:pypi/pydantic@1.10.9"
+  },
+  {
+   "type": "library",
+   "name": "httpx",
+   "version": "0.24.1",
+   "purl": "pkg:pypi/httpx@0.24.1"
+  },
+  {
+   "type": "library",
+   "name": "react",
+   "version": "18.2.0",
+   "purl": "pkg:npm/react@18.2.0"
+  },
+  {
+   "type": "library",
+   "name": "react-dom",
+   "version": "18.2.0",
+   "purl": "pkg:npm/react-dom@18.2.0"
+  },
+  {
+   "type": "library",
+   "name": "apache-airflow",
+   "version": "2.6.3",
+   "purl": "pkg:pypi/apache-airflow@2.6.3"
+  },
+  {
+   "type": "library",
+   "name": "relaypost-sms",
+   "version": "2.4.0",
+   "purl": "pkg:pypi/relaypost-sms@2.4.0"
+  }
+ ]
+}

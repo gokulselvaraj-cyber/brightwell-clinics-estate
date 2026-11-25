@@ -1,0 +1,17 @@
+code: BW-LDN-01
+name: Brightwell Marylebone
+town: London
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2014
+rooms: 3
+specialties: [DERM, ENT, OPHT, CARD, GAST]
+opening_hours:
+    mon: 08:00-18:00
+    tue: 08:00-18:00
+    wed: 08:00-18:00
+    thu: 08:00-18:00
+    fri: 08:00-18:00
+    sat: 09:00-13:00
+reminder_language: en-GB

@@ -1,0 +1,11 @@
+:root { --bw-green: #0b6e4f; --bw-ink: #1d2a2f; --bw-paper: #fbfaf7; }
+body { margin: 0; font-family: system-ui, sans-serif; color: var(--bw-ink); background: var(--bw-paper); }
+.container { max-width: 960px; margin: 0 auto; padding: 16px; }
+.site-header { display: flex; gap: 24px; align-items: center; padding: 12px 16px; background: var(--bw-green); }
+.site-header a { color: #fff; text-decoration: none; }
+.steps { display: flex; gap: 12px; list-style: none; padding: 0; }
+.steps [aria-current="step"] { font-weight: 700; border-bottom: 3px solid var(--bw-green); }
+.slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+.slot.selected { outline: 3px solid var(--bw-green); }
+.error-banner { background: #fde8e8; padding: 8px 12px; border-left: 4px solid #b42318; }
+.cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 12px; }

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Moves signed visit summaries older than 2 years to the expired/ prefix before lifecycle deletion.
+set -euo pipefail
+BUCKET="${ARCHIVE_BUCKET:-bw-visit-summaries-euw2}"
+CUTOFF="$(date -d '2 years ago' +%Y-%m-%d)"
+aws s3api list-objects-v2 --bucket "$BUCKET" --prefix signed/ \
+  --query "Contents[?LastModified<'$CUTOFF'].Key" --output text | tr '\t' '\n' |
+  while read -r key; do
+    aws s3 mv "s3://$BUCKET/$key" "s3://$BUCKET/expired/${key#signed/}"
+  done

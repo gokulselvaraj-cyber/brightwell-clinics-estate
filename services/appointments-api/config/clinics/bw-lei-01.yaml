@@ -1,0 +1,17 @@
+code: BW-LEI-01
+name: Brightwell Grey Friars
+town: Leicester
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2018
+rooms: 5
+specialties: [DERM, ENT]
+opening_hours:
+    mon: 08:00-18:00
+    tue: 08:00-18:00
+    wed: 08:00-18:00
+    thu: 08:00-18:00
+    fri: 08:00-18:00
+    sat: 09:00-13:00
+reminder_language: en-GB

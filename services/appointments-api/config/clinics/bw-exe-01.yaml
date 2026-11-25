@@ -1,0 +1,17 @@
+code: BW-EXE-01
+name: Brightwell Pennsylvania Rd
+town: Exeter
+nation: ENG
+timezone: Europe/London
+data_region: eu-west-2
+opened: 2024
+rooms: 5
+specialties: [MSK, ENT]
+opening_hours:
+    mon: 08:00-19:00
+    tue: 08:00-19:00
+    wed: 08:00-19:00
+    thu: 08:00-19:00
+    fri: 08:00-19:00
+    sat: closed
+reminder_language: en-GB

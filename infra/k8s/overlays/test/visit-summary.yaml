@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visit-summary
+spec:
+  replicas: 2
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: visit-summary-config
+data:
+  VISIT_SUMMARY_LLM_ENABLED: "true"
+  LLM_GATEWAY_URL: "https://llm-gateway.bw-test.internal/v1/chat/completions"
